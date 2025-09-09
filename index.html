@@ -5,87 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Daily n8n job market analysis report with automation and workflow opportunities">
     <meta name="keywords" content="n8n, automation, workflow, jobs, market analysis">
-    <title>n8n Job Market Report - 9/8/2025</title>
+    <meta property="og:title" content="n8n Job Market Report - 9/9/2025">
+    <meta property="og:description" content="Real-time analysis of n8n and automation job opportunities">
+    <title>n8n Job Market Report - 9/9/2025</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #764ba2;
+            --success: #48bb78;
+            --danger: #ff6b6b;
+            --warning: #ffd93d;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #718096;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             min-height: 100vh;
             padding: 20px;
-            color: #2d3748;
+            color: var(--dark);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #48bb78, #38a169);
+            z-index: 1000;
+            transition: width 0.3s ease;
+            width: var(--scroll-progress, 0%);
+        }
+        
+        /* Animated Background */
+        .bg-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            left: 30%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(-20px, 20px) rotate(180deg); }
+            75% { transform: translate(-30px, -20px) rotate(270deg); }
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            animation: fadeIn 0.5s ease;
+            animation: fadeInUp 0.8s ease;
         }
         
+        /* Enhanced Header */
         .header {
             text-align: center;
             color: white;
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
         }
         
         .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
         
         .header .subtitle {
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.95;
             margin-bottom: 20px;
+            font-weight: 400;
         }
         
         .header .date {
             font-size: 1em;
-            opacity: 0.8;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
         
+        /* Alert Box Enhanced */
         .alert-box {
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            background: linear-gradient(135deg, var(--danger), #ff8787);
             color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: none 2s infinite;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alert-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            animation: alertPulse 2s infinite;
+        }
+        
+        @keyframes alertPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
         }
         
         .alert-box h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
+            font-size: 2em;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
         }
         
+        /* Stats Grid Enhanced */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 25px;
+            margin-bottom: 40px;
         }
         
         .stat-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
         
         .stat-card::before {
@@ -95,245 +230,388 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25);
         }
         
         .stat-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .stat-value {
-            font-size: 2.5em;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: inline-block;
         }
         
         .stat-label {
-            color: #718096;
+            color: var(--gray);
             font-size: 1.1em;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
+        /* Content Sections Enhanced */
         .content-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.98);
+            padding: 50px;
+            border-radius: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease backwards;
+        }
+        
+        .content-section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        
+        .content-section:nth-child(even) {
+            animation-delay: 0.4s;
         }
         
         .section-title {
-            font-size: 2em;
-            color: #2d3748;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
+            font-size: 2.2em;
+            color: var(--dark);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-weight: 600;
         }
         
+        .section-title span:first-child {
+            font-size: 1.2em;
+        }
+        
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Job Cards Enhanced */
         .job-card {
-            background: #f7fafc;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border-left: 5px solid;
+            border-image: linear-gradient(180deg, var(--primary), var(--secondary)) 1;
+            transition: var(--transition);
             position: relative;
+            animation: slideInLeft 0.6s ease backwards;
+            animation-delay: calc(var(--index, 0) * 0.1s);
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         .job-card:hover {
-            background: #edf2f7;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transform: translateX(5px);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
         }
         
         .job-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
         
         .job-company {
-            color: #4a5568;
-            font-size: 1.1em;
+            color: var(--primary);
+            font-size: 1.15em;
             font-weight: 500;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .job-details {
-            color: #718096;
-            margin-bottom: 15px;
-            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95em;
+        }
+        
+        .job-details span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .job-score {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 25px;
             font-size: 0.9em;
-            font-weight: bold;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
+        /* Skills Tags Enhanced */
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 20px;
         }
         
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 8px 18px;
+            border-radius: 25px;
             font-size: 0.9em;
             font-weight: 500;
+            transition: var(--transition);
+            cursor: default;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         .skill-tag.secondary {
-            background: #e2e8f0;
-            color: #4a5568;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            color: var(--dark);
         }
         
-        .analysis-content {
-            line-height: 1.8;
-            color: #4a5568;
-            font-size: 1.1em;
-        }
-        
-        .analysis-content h2 {
-            color: #2d3748;
-            margin: 30px 0 20px 0;
-            font-size: 1.6em;
-        }
-        
-        .analysis-content h3 {
-            color: #2d3748;
-            margin: 25px 0 15px 0;
-            font-size: 1.3em;
-        }
-        
-        .analysis-content ul {
-            margin-left: 30px;
-            margin-top: 15px;
-        }
-        
-        .analysis-content li {
-            margin-bottom: 10px;
-        }
-        
-        .analysis-content p {
-            margin-bottom: 15px;
-        }
-        
-        .analysis-content strong {
-            color: #2d3748;
-            font-weight: 600;
-        }
-        
+        /* Skills Chart Enhanced */
         .skills-chart {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 20px;
+            margin: 30px 0;
         }
         
         .skill-bar {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
         
         .skill-name {
-            min-width: 120px;
-            font-weight: 500;
+            min-width: 140px;
+            font-weight: 600;
+            color: var(--dark);
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
         }
         
         .skill-progress {
             flex: 1;
-            height: 25px;
+            height: 30px;
             background: #e2e8f0;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
         }
         
         .skill-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 12px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            background-size: 200% 100%;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 10px;
+            padding-right: 15px;
             color: white;
             font-size: 0.9em;
-            font-weight: bold;
-            transition: width 1s ease;
+            font-weight: 600;
+            transition: width 1.5s ease;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+            overflow: hidden;
         }
         
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .skill-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: slide 2s infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* View Job Link */
+        .view-job-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .view-job-link::after {
+            content: '→';
+            transition: var(--transition);
+        }
+        
+        .view-job-link:hover {
+            color: var(--primary-dark);
+            gap: 12px;
+        }
+        
+        .view-job-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* Footer Enhanced */
         .footer {
             text-align: center;
             color: white;
-            padding: 30px;
-            margin-top: 50px;
+            padding: 40px;
+            margin-top: 60px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
         }
         
         .footer p {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.05em;
         }
         
         .footer .links {
-            margin-top: 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         
         .footer a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
-            padding: 5px 10px;
-            border: 1px solid white;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            transition: var(--transition);
+            font-weight: 500;
         }
         
         .footer a:hover {
             background: white;
-            color: #667eea;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.05); }
         }
         
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
             
             .stats-grid {
@@ -341,53 +619,111 @@
             }
             
             .content-section {
-                padding: 25px;
+                padding: 30px 20px;
             }
             
             .skill-name {
-                min-width: 80px;
-                font-size: 0.9em;
+                min-width: 100px;
+                font-size: 0.85em;
+            }
+            
+            .job-score {
+                position: static;
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --dark: #f7fafc;
+                --light: #2d3748;
+                --gray: #a0aec0;
+            }
+            
+            body {
+                background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            }
+            
+            .stat-card,
+            .content-section {
+                background: rgba(45, 55, 72, 0.95);
+                color: var(--dark);
+            }
+            
+            .job-card {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .filter-buttons,
+            .footer .links {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <div class="progress-bar"></div>
+    
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
     <div class="container">
         <div class="header">
             <h1>📊 n8n Job Market Report</h1>
             <p class="subtitle">Automation & Workflow Opportunities Analysis</p>
-            <p class="date">📅 9/8/2025 | 🔄 Updated Daily at 9:00 AM</p>
+            <p class="date">
+                <span>📅 9/9/2025</span>
+                <span>|</span>
+                <span>🔄 Updated Daily at 9:00 AM</span>
+            </p>
         </div>
         
         
         <div class="alert-box">
-            <h2>📊 5 automation-related positions to explore</h2>
-            <p>Action Required: <strong>MONITOR</strong></p>
+            <h2>🎯 Found 1 n8n job opportunities!</h2>
+            <p>Action Required: <strong>URGENT</strong></p>
         </div>
         
         
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon">📈</div>
-                <div class="stat-value">102</div>
+                <div class="stat-value" data-target="102">0</div>
                 <div class="stat-label">Total Jobs</div>
             </div>
             
             <div class="stat-card">
                 <div class="stat-icon">🎯</div>
-                <div class="stat-value">0</div>
+                <div class="stat-value" data-target="1">0</div>
                 <div class="stat-label">n8n Specific</div>
             </div>
             
             <div class="stat-card">
                 <div class="stat-icon">🤖</div>
-                <div class="stat-value">5</div>
+                <div class="stat-value" data-target="4">0</div>
                 <div class="stat-label">Automation Related</div>
             </div>
             
             <div class="stat-card">
                 <div class="stat-icon">📊</div>
-                <div class="stat-value">5.9%</div>
+                <div class="stat-value">4.9%</div>
                 <div class="stat-label">Relevance Rate</div>
             </div>
         </div>
@@ -399,7 +735,7 @@
                 <span>AI Market Analysis</span>
             </h2>
             <div class="analysis-content">
-                <br><h1>📊 n8n Job Market Analysis Report</h1></p><p><h2>🎯 Market Overview</h2><br><strong>Market Heat: 🌱 Emerging</strong></p><p>Out of <strong>102</strong> jobs analyzed today, we identified <strong>6</strong> automation and workflow-related opportunities (5.9%). Notably, there are <strong>0</strong> positions specifically mentioning n8n, indicating the market demand for this skill is still developing.</p><p><h2>📈 Trend Analysis</h2></p><p><h3>Skills Demand Ranking</h3><br><li><strong>api</strong> - 3 mentions (50.0%)</li><br><li><strong>python</strong> - 1 mentions (16.7%)</li><br><li><strong>sql</strong> - 1 mentions (16.7%)</li><br><li><strong>postgresql</strong> - 1 mentions (16.7%)</li></p><p><h3>Company Recruitment Activity</h3><br><li><strong>Protektis GmbH</strong> - 1 relevant positions</li><br><li><strong>DeltaValue GmbH</strong> - 1 relevant positions</li><br><li><strong>Rapid Pioneers</strong> - 1 relevant positions</li><br><li><strong>GreenPocket GmbH</strong> - 1 relevant positions</li><br><li><strong>Mensch und Maschine</strong> - 1 relevant positions</li></p><p><h3>Location Distribution</h3><br>Cologne is the primary recruitment region</p><p>Primary locations:<br>- Cologne: 2 positions (33.3%)<br>- Aschaffenburg: 1 positions (16.7%)<br>- Essen: 1 positions (16.7%)<br>- Berlin: 1 positions (16.7%)<br>- Remote: 1 positions (16.7%)</p><p><h2>💡 Key Insights</h2></p><p><li><strong>Tech Stack Trends</strong>: api (demand: 50.0%), python (demand: 16.7%), sql (demand: 16.7%), postgresql (demand: 16.7%) are the most sought-after skill combinations.</li></p><p><li><strong>n8n Market Position</strong>: While direct n8n positions are limited, automation-related roles are plentiful. n8n skills can be a differentiating advantage.</li></p><p><li><strong>Automation Demand</strong>: 5 positions involve automation technologies, representing 83.3% of relevant jobs, indicating strong demand for digital transformation.</li></p><p><h2>🎓 Job Seeker Action Plan</h2></p><p><h3>Immediate Actions</h3><br><li><strong>Build n8n Portfolio</strong>: Create 3-5 n8n workflow examples showcasing automation capabilities</li><br><li><strong>Get Certified</strong>: Consider relevant API and cloud service certifications (AWS, GCP)</li><br><li><strong>Open Source Contribution</strong>: Participate in n8n community or create custom n8n nodes</li></p><p><h3>Skills Development Roadmap</h3><br><li><strong>Foundation Skills</strong> (1-2 months)</li><br>   - Master REST APIs and Webhooks<br>   - Learn JSON data processing<br>   - Understand error handling and debugging</p><p><li><strong>Advanced Skills</strong> (3-4 months)</li><br>   - Master complex workflow design patterns<br>   - Learn database integration (SQL, NoSQL)<br>   - Implement CI/CD process automation</p><p><li><strong>Expert Skills</strong> (6+ months)</li><br>   - Custom n8n node development<br>   - Enterprise workflow architecture design<br>   - Performance optimization and scaling</p><p><h3>Career Positioning Strategy</h3><br>- <strong>Target Positions</strong>: Automation Engineer, Integration Specialist, Workflow Developer<br>- <strong>Salary Expectations</strong>: Based on market data, salary ranges vary widely - focus on gaining experience first<br>- <strong>Industry Selection</strong>: Tech, finance, e-commerce sectors with high digitalization offer most opportunities</p><p><h2>📅 Future Outlook (3-6 months)</h2></p><p>Based on current trends:<br><li><strong>n8n Demand Growth</strong>: With more companies discovering n8n, specialized positions expected to increase 50-100%</li><br><li><strong>Skills Evolution</strong>: AI + n8n combinations will become the new hotspot</li><br><li><strong>Remote Expansion</strong>: Remote position ratio will increase</li><br><li><strong>Salary Levels</strong>: Automation specialist salaries expected to rise 10-20%</li></p><p><h2>🔔 Special Alert</h2><br>💡 While n8n-specific positions are limited, your n8n skills will be a significant advantage in automation roles.</p><p>---<br><em>Report Generated: 9/8/2025, 3:48:17 PM</em><br><em>Data Source: Arbeitnow: 100 jobs, TestData: 2 jobs, Upwork: 等待審核</em><br>
+                <br><h1>📊 n8n Job Market Analysis Report</h1></p><p><h2>🎯 Market Overview</h2><br><strong>Market Heat: 🔥 Hot</strong></p><p>Out of <strong>102</strong> jobs analyzed today, we identified <strong>5</strong> automation and workflow-related opportunities (4.9%). Notably, there are <strong>1</strong> positions specifically mentioning n8n, indicating the market demand for this skill is growing.</p><p><h2>📈 Trend Analysis</h2></p><p><h3>Skills Demand Ranking</h3><br><li><strong>api</strong> - 2 mentions (40.0%)</li><br><li><strong>node.js</strong> - 1 mentions (20.0%)</li><br><li><strong>python</strong> - 1 mentions (20.0%)</li><br><li><strong>sql</strong> - 1 mentions (20.0%)</li><br><li><strong>postgresql</strong> - 1 mentions (20.0%)</li></p><p><h3>Company Recruitment Activity</h3><br><li><strong>Japan Management</strong> - 1 relevant positions</li><br><li><strong>MY Humancapital GmbH</strong> - 1 relevant positions</li><br><li><strong>Intercon Solutions GmbH</strong> - 1 relevant positions</li><br><li><strong>Senovo Capital Management GmbH</strong> - 1 relevant positions</li><br><li><strong>DataCorp</strong> - 1 relevant positions</li></p><p><h3>Location Distribution</h3><br>Munich is the primary recruitment region</p><p>Primary locations:<br>- Munich: 2 positions (40.0%)<br>- Frankfurt: 1 positions (20.0%)<br>- Cologne: 1 positions (20.0%)<br>- Remote: 1 positions (20.0%)</p><p><h2>💡 Key Insights</h2></p><p><li><strong>Tech Stack Trends</strong>: api (demand: 40.0%), node.js (demand: 20.0%), python (demand: 20.0%), sql (demand: 20.0%), postgresql (demand: 20.0%) are the most sought-after skill combinations.</li></p><p><li><strong>n8n Market Position</strong>: Found dedicated n8n positions, showing companies are recognizing n8n's value. This is the perfect time to enter the market!</li></p><p><li><strong>Automation Demand</strong>: 4 positions involve automation technologies, representing 80.0% of relevant jobs, indicating strong demand for digital transformation.</li></p><p><h2>🎓 Job Seeker Action Plan</h2></p><p><h3>Immediate Actions</h3><br><li><strong>Build n8n Portfolio</strong>: Create 3-5 n8n workflow examples showcasing automation capabilities</li><br><li><strong>Get Certified</strong>: Consider relevant API and cloud service certifications (AWS, GCP)</li><br><li><strong>Open Source Contribution</strong>: Participate in n8n community or create custom n8n nodes</li></p><p><h3>Skills Development Roadmap</h3><br><li><strong>Foundation Skills</strong> (1-2 months)</li><br>   - Master REST APIs and Webhooks<br>   - Learn JSON data processing<br>   - Understand error handling and debugging</p><p><li><strong>Advanced Skills</strong> (3-4 months)</li><br>   - Master complex workflow design patterns<br>   - Learn database integration (SQL, NoSQL)<br>   - Implement CI/CD process automation</p><p><li><strong>Expert Skills</strong> (6+ months)</li><br>   - Custom n8n node development<br>   - Enterprise workflow architecture design<br>   - Performance optimization and scaling</p><p><h3>Career Positioning Strategy</h3><br>- <strong>Target Positions</strong>: Automation Engineer, Integration Specialist, Workflow Developer<br>- <strong>Salary Expectations</strong>: Based on market data, salary ranges vary widely - focus on gaining experience first<br>- <strong>Industry Selection</strong>: Tech, finance, e-commerce sectors with high digitalization offer most opportunities</p><p><h2>📅 Future Outlook (3-6 months)</h2></p><p>Based on current trends:<br><li><strong>n8n Demand Growth</strong>: With more companies discovering n8n, specialized positions expected to increase 50-100%</li><br><li><strong>Skills Evolution</strong>: AI + n8n combinations will become the new hotspot</li><br><li><strong>Remote Expansion</strong>: Remote position ratio will increase</li><br><li><strong>Salary Levels</strong>: Automation specialist salaries expected to rise 10-20%</li></p><p><h2>🔔 Special Alert</h2><br>⚡ Found 1 n8n-specific positions! Review and apply immediately.</p><p>---<br><em>Report Generated: 9/9/2025, 3:18:57 PM</em><br><em>Data Source: Arbeitnow: 100 jobs, TestData: 2 jobs, Upwork: 等待審核</em><br>
             </div>
         </div>
         
@@ -414,8 +750,17 @@
                 <div class="skill-bar">
                     <div class="skill-name">api</div>
                     <div class="skill-progress">
-                        <div class="skill-fill" style="width: 50.0%">
-                            3
+                        <div class="skill-fill" data-width="40.0%" style="width: 0">
+                            2
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-bar">
+                    <div class="skill-name">node.js</div>
+                    <div class="skill-progress">
+                        <div class="skill-fill" data-width="20.0%" style="width: 0">
+                            1
                         </div>
                     </div>
                 </div>
@@ -423,7 +768,7 @@
                 <div class="skill-bar">
                     <div class="skill-name">python</div>
                     <div class="skill-progress">
-                        <div class="skill-fill" style="width: 16.7%">
+                        <div class="skill-fill" data-width="20.0%" style="width: 0">
                             1
                         </div>
                     </div>
@@ -432,7 +777,7 @@
                 <div class="skill-bar">
                     <div class="skill-name">sql</div>
                     <div class="skill-progress">
-                        <div class="skill-fill" style="width: 16.7%">
+                        <div class="skill-fill" data-width="20.0%" style="width: 0">
                             1
                         </div>
                     </div>
@@ -441,7 +786,7 @@
                 <div class="skill-bar">
                     <div class="skill-name">postgresql</div>
                     <div class="skill-progress">
-                        <div class="skill-fill" style="width: 16.7%">
+                        <div class="skill-fill" data-width="20.0%" style="width: 0">
                             1
                         </div>
                     </div>
@@ -456,7 +801,7 @@
                 <span>Top Hiring Companies</span>
             </h2>
             <div class="skill-tags">
-                <span class="skill-tag">Protektis GmbH (1)</span><span class="skill-tag">DeltaValue GmbH (1)</span><span class="skill-tag">Rapid Pioneers (1)</span><span class="skill-tag">GreenPocket GmbH (1)</span><span class="skill-tag">Mensch und Maschine (1)</span><span class="skill-tag">DataCorp (1)</span>
+                <span class="skill-tag">Japan Management (1)</span><span class="skill-tag">MY Humancapital GmbH (1)</span><span class="skill-tag">Intercon Solutions GmbH (1)</span><span class="skill-tag">Senovo Capital Management GmbH (1)</span><span class="skill-tag">DataCorp (1)</span>
             </div>
         </div>
         
@@ -466,127 +811,245 @@
                 <span>Featured Job Opportunities</span>
             </h2>
             
-            <div class="job-card">
-                <div class="job-score">Match: 7</div>
-                <div class="job-title">Investment Analyst (m/w/d) im Bereich Kapitalmärkte</div>
-                <div class="job-company">DeltaValue GmbH</div>
-                <div class="job-details">
-                    📍 Essen | 
-                    💰 Competitive | 
-                    🏷️ Arbeitnow
-                    
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">Asset</span><span class="skill-tag secondary">Fonds Management</span>
-                </div>
-                <a href="https://www.arbeitnow.com/jobs/companies/deltavalue-gmbh/investment-analyst-im-bereich-kapitalmarkte-essen-114682" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 15px;">View Job →</a>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterJobs('all')">All Jobs</button>
+                <button class="filter-btn" onclick="filterJobs('n8n')">n8n Specific</button>
+                <button class="filter-btn" onclick="filterJobs('high')">High Match (10+)</button>
+                <button class="filter-btn" onclick="filterJobs('recent')">Recent</button>
             </div>
             
-            <div class="job-card">
-                <div class="job-score">Match: 7</div>
-                <div class="job-title">Head of Marketing - Growth Focus (Cologne Based)</div>
-                <div class="job-company">Rapid Pioneers</div>
-                <div class="job-details">
-                    📍 Cologne | 
-                    💰 Competitive | 
-                    🏷️ Arbeitnow
+            <div id="jobs-container">
+                
+                <div class="job-card" data-score="15" data-n8n="true" style="--index: 0">
+                    <div class="job-score">Match: 15</div>
+                    <div class="job-title">Service Engineer & Technical Trainer - CNC Machining Centers (m/f/d)</div>
+                    <div class="job-company">Japan Management</div>
+                    <div class="job-details">
+                        <span>📍 Frankfurt</span>
+                        <span>💰 Competitive</span>
+                        <span>🏷️ Arbeitnow</span>
+                        <span>⭐ n8n Specific</span>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag secondary">Automation Engineering</span>
+                    </div>
+                    <a href="https://www.arbeitnow.com/jobs/companies/japan-management/service-engineer-technical-trainer-cnc-machining-centers-frankfurt-166140" target="_blank" class="view-job-link">View Job</a>
+                </div>
+                
+                <div class="job-card" data-score="7" data-n8n="false" style="--index: 1">
+                    <div class="job-score">Match: 7</div>
+                    <div class="job-title">Haustechniker / Gebäudetechniker (m/w/d)</div>
+                    <div class="job-company">MY Humancapital GmbH</div>
+                    <div class="job-details">
+                        <span>📍 Munich</span>
+                        <span>💰 Competitive</span>
+                        <span>🏷️ Arbeitnow</span>
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag secondary">Building</span><span class="skill-tag secondary">Supply</span><span class="skill-tag secondary">Safety Services Engineering</span>
+                    </div>
+                    <a href="https://www.arbeitnow.com/jobs/companies/my-humancapital-gmbh/haustechniker-gebaudetechniker-munich-78362" target="_blank" class="view-job-link">View Job</a>
+                </div>
+                
+                <div class="job-card" data-score="7" data-n8n="false" style="--index: 2">
+                    <div class="job-score">Match: 7</div>
+                    <div class="job-title">Node.js-Entwickler mit Schwerpunkt DevOps (w/m/d)</div>
+                    <div class="job-company">Intercon Solutions GmbH</div>
+                    <div class="job-details">
+                        <span>📍 Cologne</span>
+                        <span>💰 Competitive</span>
+                        <span>🏷️ Arbeitnow</span>
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag secondary">Software Development</span>
+                    </div>
+                    <a href="https://www.arbeitnow.com/jobs/companies/intercon-solutions-gmbh/nodejs-entwickler-mit-schwerpunkt-devops-cologne-97607" target="_blank" class="view-job-link">View Job</a>
+                </div>
+                
+                <div class="job-card" data-score="7" data-n8n="false" style="--index: 3">
+                    <div class="job-score">Match: 7</div>
+                    <div class="job-title">Intern (m/f/x) Venture Capital</div>
+                    <div class="job-company">Senovo Capital Management GmbH</div>
+                    <div class="job-details">
+                        <span>📍 Munich</span>
+                        <span>💰 Competitive</span>
+                        <span>🏷️ Arbeitnow</span>
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag secondary">Mergers & Acquisitions</span>
+                    </div>
+                    <a href="https://www.arbeitnow.com/jobs/companies/senovo-capital-management-gmbh/intern-venture-capital-munich-71375" target="_blank" class="view-job-link">View Job</a>
+                </div>
+                
+                <div class="job-card" data-score="6" data-n8n="false" style="--index: 4">
+                    <div class="job-score">Match: 6</div>
+                    <div class="job-title">Senior Python Developer</div>
+                    <div class="job-company">DataCorp</div>
+                    <div class="job-details">
+                        <span>📍 Remote</span>
+                        <span>💰 $90k - $130k</span>
+                        <span>🏷️ TestData</span>
+                        
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag secondary">Python</span><span class="skill-tag secondary">Django</span><span class="skill-tag secondary">PostgreSQL</span>
+                    </div>
                     
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">Marketing Manager</span>
-                </div>
-                <a href="https://www.arbeitnow.com/jobs/companies/rapid-pioneers/head-of-marketing-growth-focus-cologne-based-77732" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 15px;">View Job →</a>
-            </div>
-            
-            <div class="job-card">
-                <div class="job-score">Match: 7</div>
-                <div class="job-title">API - Entwickler / MuleSoft (m/w/d)</div>
-                <div class="job-company">Mensch und Maschine</div>
-                <div class="job-details">
-                    📍 Berlin | 
-                    💰 Competitive | 
-                    🏷️ Arbeitnow
-                    
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">Remote</span><span class="skill-tag secondary">Software Development</span>
-                </div>
-                <a href="https://www.arbeitnow.com/jobs/companies/mensch-und-maschine/api-entwickler-mulesoft-berlin-73126" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 15px;">View Job →</a>
-            </div>
-            
-            <div class="job-card">
-                <div class="job-score">Match: 6</div>
-                <div class="job-title">Senior Python Developer</div>
-                <div class="job-company">DataCorp</div>
-                <div class="job-details">
-                    📍 Remote | 
-                    💰 $90k - $130k | 
-                    🏷️ TestData
-                    
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">Python</span><span class="skill-tag secondary">Django</span><span class="skill-tag secondary">PostgreSQL</span>
                 </div>
                 
             </div>
-            
-            <div class="job-card">
-                <div class="job-score">Match: 5</div>
-                <div class="job-title">Fachinformatiker für Systemintegration (m/w/d) mit Fokus auf IT-Sicherheit</div>
-                <div class="job-company">Protektis GmbH</div>
-                <div class="job-details">
-                    📍 Aschaffenburg | 
-                    💰 Competitive | 
-                    🏷️ Arbeitnow
-                    
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">IT Security</span>
-                </div>
-                <a href="https://www.arbeitnow.com/jobs/companies/protektis-gmbh/fachinformatiker-fur-systemintegration-mit-fokus-auf-it-sicherheit-aschaffenburg-72170" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 15px;">View Job →</a>
-            </div>
-            
-            <div class="job-card">
-                <div class="job-score">Match: 5</div>
-                <div class="job-title">DevOps Engineer (m/w/d) im Kölner Startup</div>
-                <div class="job-company">GreenPocket GmbH</div>
-                <div class="job-details">
-                    📍 Cologne | 
-                    💰 Competitive | 
-                    🏷️ Arbeitnow
-                    
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag secondary">IT</span>
-                </div>
-                <a href="https://www.arbeitnow.com/jobs/companies/greenpocket-gmbh/devops-engineer-im-kolner-startup-cologne-283635" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500; display: inline-block; margin-top: 15px;">View Job →</a>
-            </div>
-            
         </div>
         
         <div class="footer">
             <p><strong>🤖 Powered by n8n Automation</strong></p>
-            <p>Report Generated: 2025-09-08T15:48:17.227Z</p>
+            <p>Report Generated: 9/9/2025, 3:31:13 PM</p>
             <p>Data Sources: Arbeitnow: 100 jobs, TestData: 2 jobs, Upwork: 等待審核</p>
             <div class="links">
                 <a href="https://n8n.io" target="_blank">n8n.io</a>
-                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://github.com/adsoptiai/n8n-job-reports" target="_blank">GitHub</a>
+                <a href="#" onclick="window.print(); return false;">Print Report</a>
             </div>
         </div>
     </div>
     
     <script>
-        // Animate skill bars on load
-        window.addEventListener('load', () => {
-            const skillFills = document.querySelectorAll('.skill-fill');
-            skillFills.forEach((fill, index) => {
-                setTimeout(() => {
-                    fill.style.width = fill.style.width;
-                }, index * 100);
-            });
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.documentElement.style.setProperty('--scroll-progress', scrolled + '%');
         });
         
-        // Auto-refresh countdown
+        // Animate Numbers
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-value[data-target]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+        
+        // Animate Skill Bars
+        function animateSkillBars() {
+            const skillFills = document.querySelectorAll('.skill-fill[data-width]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.getAttribute('data-width');
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            skillFills.forEach(fill => observer.observe(fill));
+        }
+        
+        // Filter Jobs Function
+        function filterJobs(filter) {
+            const jobs = document.querySelectorAll('.job-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(filter) || 
+                    (filter === 'all' && btn.textContent === 'All Jobs')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter jobs
+            jobs.forEach((job, index) => {
+                let show = false;
+                
+                switch(filter) {
+                    case 'all':
+                        show = true;
+                        break;
+                    case 'n8n':
+                        show = job.getAttribute('data-n8n') === 'true';
+                        break;
+                    case 'high':
+                        show = parseInt(job.getAttribute('data-score')) >= 10;
+                        break;
+                    case 'recent':
+                        show = index < 5;
+                        break;
+                    default:
+                        show = true;
+                }
+                
+                if (show) {
+                    job.style.display = 'block';
+                    job.style.animation = 'slideInLeft 0.6s ease backwards';
+                    job.style.animationDelay = (index * 0.05) + 's';
+                } else {
+                    job.style.display = 'none';
+                }
+            });
+        }
+        
+        // Typing Effect for Header
+        function typeWriter() {
+            const subtitle = document.querySelector('.header .subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 30);
+                }
+            }
+            type();
+        }
+        
+        // Add Copy to Clipboard for Job Titles
+        function addCopyFeature() {
+            const jobTitles = document.querySelectorAll('.job-title');
+            
+            jobTitles.forEach(title => {
+                title.style.cursor = 'pointer';
+                title.title = 'Click to copy';
+                
+                title.addEventListener('click', () => {
+                    navigator.clipboard.writeText(title.textContent).then(() => {
+                        const original = title.textContent;
+                        title.textContent = '✓ Copied!';
+                        title.style.color = 'var(--success)';
+                        
+                        setTimeout(() => {
+                            title.textContent = original;
+                            title.style.color = '';
+                        }, 2000);
+                    });
+                });
+            });
+        }
+        
+        // Add Time Until Next Update
         function updateCountdown() {
             const now = new Date();
             const tomorrow = new Date(now);
@@ -597,11 +1060,93 @@
             const hours = Math.floor(diff / 3600000);
             const minutes = Math.floor((diff % 3600000) / 60000);
             
-            console.log(`Next update in ${hours}h ${minutes}m`);
+            // Create countdown element if it doesn't exist
+            if (!document.getElementById('countdown')) {
+                const countdownEl = document.createElement('div');
+                countdownEl.id = 'countdown';
+                countdownEl.style.cssText = 'position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.9); color: var(--primary); padding: 15px 20px; border-radius: 30px; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 100;';
+                document.body.appendChild(countdownEl);
+            }
+            
+            document.getElementById('countdown').innerHTML = 
+                '⏰ Next update: ' + hours + 'h ' + minutes + 'm';
         }
         
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
+        // Initialize Theme Toggle
+        function initThemeToggle() {
+            const toggle = document.createElement('button');
+            toggle.innerHTML = '🌙';
+            toggle.style.cssText = 'position: fixed; top: 20px; right: 20px; background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5em; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 100; transition: all 0.3s ease;';
+            
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                toggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            });
+            
+            document.body.appendChild(toggle);
+        }
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Initialize Everything on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            animateNumbers();
+            animateSkillBars();
+            typeWriter();
+            addCopyFeature();
+            updateCountdown();
+            initThemeToggle();
+            
+            // Set animation delays for job cards
+            document.querySelectorAll('.job-card').forEach((card, index) => {
+                card.style.setProperty('--index', index);
+            });
+            
+            // Update countdown every minute
+            setInterval(updateCountdown, 60000);
+        });
+        
+        // Performance optimization - lazy load images if any
+        if ('IntersectionObserver' in window) {
+            const lazyElements = document.querySelectorAll('[data-lazy]');
+            const lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const lazy = entry.target;
+                        lazy.src = lazy.dataset.src;
+                        lazy.classList.remove('lazy');
+                        lazyObserver.unobserve(lazy);
+                    }
+                });
+            });
+            
+            lazyElements.forEach(lazy => lazyObserver.observe(lazy));
+        }
+        
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Press 'P' to print
+            if (e.key === 'p' && e.ctrlKey) {
+                e.preventDefault();
+                window.print();
+            }
+            // Press 'T' to toggle theme
+            if (e.key === 't' && e.altKey) {
+                document.body.classList.toggle('dark-mode');
+            }
+        });
+        
+        console.log('%c n8n Job Market Report', 'background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-size: 20px; padding: 10px 20px; border-radius: 10px;');
+        console.log('Report generated successfully at 2025-09-09T15:31:13.216Z');
     </script>
 </body>
 </html>
